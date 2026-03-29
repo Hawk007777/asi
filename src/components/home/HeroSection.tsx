@@ -1,30 +1,26 @@
-import { ArrowRight, ShieldCheck, Target, Shield, Network, Brain, Crosshair } from "lucide-react";
+import {
+  ArrowRight,
+  ShieldCheck,
+  Target,
+  Shield,
+  Network,
+  Brain,
+  Crosshair,
+  Layers,
+  ListChecks,
+  BookOpen,
+  Map,
+  GitBranch,
+  BarChart2,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 
 const sectionLinks = [
   {
-    icon: ShieldCheck,
-    title: "AISVS Standards",
-    description: "13 verification categories for AI agent security",
-    path: "/aisvs",
-  },
-  {
-    icon: Target,
-    title: "Threat Catalog",
-    description: "Known threats to agentic AI systems",
-    path: "/threats",
-  },
-  {
-    icon: Shield,
-    title: "Security Controls",
-    description: "Defensive mitigations and controls",
-    path: "/controls",
-  },
-  {
-    icon: Network,
-    title: "NIST AI RMF",
-    description: "Interactive NIST Risk Management mapping",
-    path: "/nist-mapping",
+    icon: Layers,
+    title: "AI Components",
+    description: "6 key components of agentic AI systems",
+    path: "/components",
   },
   {
     icon: Brain,
@@ -33,10 +29,64 @@ const sectionLinks = [
     path: "/architectures",
   },
   {
+    icon: Target,
+    title: "Threat Catalog",
+    description: "15 known threats to agentic AI systems",
+    path: "/threats",
+  },
+  {
+    icon: Shield,
+    title: "Security Controls",
+    description: "100+ defensive mitigations and controls",
+    path: "/controls",
+  },
+  {
+    icon: ShieldCheck,
+    title: "AISVS Standards",
+    description: "13 verification categories for AI agent security",
+    path: "/aisvs",
+  },
+  {
+    icon: Network,
+    title: "NIST AI RMF",
+    description: "Interactive NIST Risk Management mapping",
+    path: "/nist-mapping",
+  },
+  {
+    icon: GitBranch,
+    title: "OWASP Agentic Top 10",
+    description: "Top 10 risks for agentic AI applications",
+    path: "/taxonomy?tab=owasp-agentic",
+  },
+  {
+    icon: Map,
+    title: "Cisco AI Taxonomy",
+    description: "Cisco AI security taxonomy browser",
+    path: "/taxonomy?tab=cisco",
+  },
+  {
+    icon: BarChart2,
+    title: "AIVSS Calculator",
+    description: "AI vulnerability severity scoring tool",
+    path: "/taxonomy?tab=aivss",
+  },
+  {
     icon: Crosshair,
     title: "Threat Modeler",
     description: "Drag-and-drop MAESTRO threat modeling",
     path: "/threat-modeler",
+  },
+  {
+    icon: ListChecks,
+    title: "Security Checklist",
+    description: "Interactive security assessment checklist",
+    path: "/interactive",
+  },
+  {
+    icon: BookOpen,
+    title: "Implementation Guide",
+    description: "Practical guidance for securing agentic systems",
+    path: "/implementation",
   },
 ];
 
@@ -46,7 +96,7 @@ export const HeroSection = () => {
       {/* Dot-grid background */}
       <div className="hero-grid-bg absolute inset-0 text-foreground opacity-[0.03] dark:opacity-[0.05] pointer-events-none" />
 
-      <div className="container relative px-4 md:px-6 max-w-3xl mx-auto">
+      <div className="container relative px-4 md:px-6 max-w-5xl mx-auto">
         <div className="flex flex-col items-center text-center space-y-8">
           {/* Status badge */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border bg-muted/50 dark:bg-muted/30">
@@ -70,13 +120,23 @@ export const HeroSection = () => {
 
           {/* Subtitle */}
           <p className="max-w-2xl text-base text-muted-foreground leading-relaxed md:text-lg">
-            Threat models, verification standards, and security controls for AI agent architectures.
-            Built on OWASP AISVS and NIST AI RMF.
+            An interactive companion to the{" "}
+            <a
+              href="https://owasp.org/www-project-securing-agentic-applications/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-2 hover:text-foreground transition-colors"
+            >
+              OWASP Securing Agentic Applications
+            </a>{" "}
+            guide. Explore threat models, verification standards, security controls, and
+            architecture patterns for AI agent systems — built on OWASP AISVS, NIST AI RMF, and
+            MITRE ATLAS.
           </p>
         </div>
 
         {/* Navigation grid */}
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-px bg-border rounded-lg border overflow-hidden">
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border rounded-lg border overflow-hidden">
           {sectionLinks.map((link) => (
             <Link
               key={link.path}
